@@ -47,7 +47,7 @@ const ProductsList = ({ signOut, ...props }) => {
   };
 
   return (
-    <Box sx={{ p: 5 }}>
+    <Box sx={{ p: 10 }}>
       {products.length ? (
         <ProductsTable products={products} />
       ) : (
