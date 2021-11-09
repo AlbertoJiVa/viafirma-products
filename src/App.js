@@ -3,6 +3,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import SignIn from "./pages/SignIn";
+import ProductsList from "./pages/ProductsList";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDiF8NG4zuKKfQDthETMo1ykP52-dXvrPQ",
@@ -59,7 +60,13 @@ function App() {
   if (initializing) return "Loading ...";
 
   return (
-    <>{user ? "User logged" : <SignIn signInWithGoogle={signInWithGoogle} />}</>
+    <>
+      {user ? (
+        <ProductsList signOut={signOut} />
+      ) : (
+        <SignIn signInWithGoogle={signInWithGoogle} />
+      )}
+    </>
   );
 }
 
